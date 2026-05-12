@@ -9,42 +9,42 @@ const SERVICES = [
     icon: "🛡️",
     title: "City Safety Score",
     tag: "AI-POWERED",
-    tagColor: "#22D3EE",
-    desc: "Get an instant risk assessment for any city — safe, moderate, high, or extreme. Updated twice daily with fresh AI intelligence.",
+    tagColor: "#2E86DE",
+    desc: "Get an instant risk assessment for any city — safe, moderate, high, or extreme. Updated with fresh AI intelligence from 20+ global sources.",
     example: {
       city: "Bangkok, Thailand",
       level: "MODERATE",
-      levelColor: "#F59E0B",
+      levelColor: "#CA8A04",
       detail: "Petty theft in tourist zones, tuk-tuk scams near Grand Palace, safe for most itineraries with standard precautions.",
     },
-    sources: ["Interpol Global Crime Trends", "OSAC Country Reports", "UK FCDO Travel Advisories"],
+    sources: ["US State Dept. Travel Advisories", "UK FCDO Travel Advice", "OSAC Country Reports"],
   },
   {
     id: "scams",
     icon: "🚨",
     title: "Scam Intelligence",
     tag: "CITY-SPECIFIC",
-    tagColor: "#F87171",
+    tagColor: "#EA580C",
     desc: "City-by-city scam database covering 33 scam types. Know exactly what to watch for before you land.",
     example: {
       city: "Rome, Italy",
       level: "WATCH",
-      levelColor: "#F59E0B",
+      levelColor: "#CA8A04",
       detail: "Friendship bracelet trap near Colosseum · Fake ticket sellers at Vatican · Distraction pickpockets on Metro Line A.",
     },
-    sources: ["Europol Organised Crime Report", "US State Dept. Travel Alerts", "Interpol Financial Crime Unit"],
+    sources: ["EUROPOL Organised Crime Report", "US State Dept. Travel Alerts", "INTERPOL Financial Crime Unit"],
   },
   {
     id: "map",
     icon: "🗺️",
     title: "Interactive Risk Map",
     tag: "3D GLOBE",
-    tagColor: "#34D399",
-    desc: "Visual 3D world map color-coded by risk level. Instantly spot danger zones across all 150+ cities before booking.",
+    tagColor: "#16A34A",
+    desc: "Visual 3D world map color-coded by risk level. Instantly spot danger zones across 150+ cities before booking.",
     example: {
       city: "Global Overview",
       level: "LIVE",
-      levelColor: "#34D399",
+      levelColor: "#16A34A",
       detail: "Green zones: Tokyo, Copenhagen, Singapore · Amber: Paris, Istanbul, Mumbai · Red: Nairobi, Bogotá, Manila.",
     },
     sources: ["GDACS Disaster Alerts", "ACLED Conflict Data", "WHO Health Advisories"],
@@ -54,12 +54,12 @@ const SERVICES = [
     icon: "📡",
     title: "Live Global Alerts",
     tag: "REAL-TIME",
-    tagColor: "#A78BFA",
+    tagColor: "#7C3AED",
     desc: "Live feeds from USGS earthquakes, WHO health alerts, GDACS disasters, and government travel advisories — all in one place.",
     example: {
       city: "Worldwide",
       level: "ACTIVE",
-      levelColor: "#A78BFA",
+      levelColor: "#7C3AED",
       detail: "M5.2 earthquake near Tokyo · WHO Yellow Fever advisory Brazil · FCDO advises against travel to NE Mali.",
     },
     sources: ["USGS Earthquake Hazards", "WHO Disease Outbreak News", "GDACS Global Disaster Alert"],
@@ -69,58 +69,62 @@ const SERVICES = [
     icon: "👥",
     title: "Community Reports",
     tag: "CROWDSOURCED",
-    tagColor: "#FB923C",
+    tagColor: "#EA580C",
     desc: "Real traveler-submitted incidents from the ground. Scam sightings, unsafe areas, police presence — before it hits the news.",
     example: {
       city: "Paris, France",
       level: "REPORT",
-      levelColor: "#FB923C",
+      levelColor: "#EA580C",
       detail: "⚠ Pickpocket gang active near Eiffel Tower (reported 3h ago) · Card skimmer spotted at ATM near Gare du Nord.",
     },
-    sources: ["Community verified reports", "Cross-referenced with Europol data", "Local embassy feeds"],
+    sources: ["Community verified reports", "Cross-referenced with EUROPOL data", "Local embassy feeds"],
   },
   {
     id: "share",
     icon: "🔗",
     title: "Shareable Briefings",
     tag: "ONE TAP",
-    tagColor: "#60A5FA",
+    tagColor: "#2E86DE",
     desc: "Generate a safety briefing link for any city. Share with travel companions, family, or colleagues instantly.",
     example: {
       city: "mytravelsafety.net?city=Tokyo",
       level: "SHARE",
-      levelColor: "#60A5FA",
+      levelColor: "#2E86DE",
       detail: "One URL delivers the full safety report — risk level, scams, dangerous areas, live alerts — no app install needed.",
     },
-    sources: ["Powered by MyTravelSafety AI", "Data from 6 global agencies", "Updated every 12 hours"],
+    sources: ["Powered by MyTravelSafety AI", "Data from 20+ global agencies", "Updated every 12 hours"],
   },
 ];
 
 const DEMO_STEPS = [
   { step: "01", title: "Enter your destination", desc: "Type any city name. Our AI recognises 150+ cities across all continents.", visual: "🔍  Bangkok" },
-  { step: "02", title: "Pick your travel dates", desc: "Date-aware analysis flags events, seasons, and known risk periods for your exact window.", visual: "📅  12 Jun → 19 Jun" },
+  { step: "02", title: "Choose Live or Scan", desc: "Live fetches real-time data right now. Scan shows stored intelligence for that city.", visual: "🔴  Live" },
   { step: "03", title: "Get your safety briefing", desc: "In seconds: risk level, top threats, dangerous areas, precautions, and live alerts.", visual: "🟡  MODERATE RISK" },
   { step: "04", title: "Share with your group", desc: "One tap shares the full briefing via WhatsApp, email, or link. No account needed.", visual: "🔗  Share Report" },
 ];
 
 const SOURCES = [
-  { name: "Interpol", role: "Global crime & scam data", url: "https://www.interpol.int", logo: "🔵" },
-  { name: "Europol", role: "Organised crime reports", url: "https://www.europol.europa.eu", logo: "🇪🇺" },
-  { name: "USGS", role: "Earthquake & geological hazards", url: "https://www.usgs.gov", logo: "🌐" },
-  { name: "WHO", role: "Health & disease outbreaks", url: "https://www.who.int", logo: "🏥" },
-  { name: "GDACS", role: "Global disaster alerts", url: "https://www.gdacs.org", logo: "🚨" },
-  { name: "UK FCDO", role: "Foreign travel advisories", url: "https://www.gov.uk/foreign-travel-advice", logo: "🇬🇧" },
-  { name: "US State Dept.", role: "American travel warnings", url: "https://travel.state.gov", logo: "🇺🇸" },
-  { name: "ACLED", role: "Armed conflict & protest data", url: "https://acleddata.com", logo: "⚔️" },
+  { name: "INTERPOL", role: "Global crime & scam data", logo: "🔵" },
+  { name: "EUROPOL", role: "Organised crime reports", logo: "🇪🇺" },
+  { name: "UN OCHA", role: "Humanitarian emergency data", logo: "🆘" },
+  { name: "USGS", role: "Earthquake & geological hazards", logo: "🌐" },
+  { name: "WHO", role: "Health & disease outbreaks", logo: "🏥" },
+  { name: "GDACS", role: "Global disaster alerts", logo: "🌀" },
+  { name: "UK FCDO", role: "Foreign travel advisories", logo: "🇬🇧" },
+  { name: "US State Dept.", role: "American travel warnings", logo: "🇺🇸" },
+  { name: "Australian DFAT", role: "Australian travel advisories", logo: "🇦🇺" },
+  { name: "Canada Global Affairs", role: "Canadian travel advisories", logo: "🇨🇦" },
+  { name: "CDC Travel Health", role: "US health travel advisories", logo: "🦠" },
+  { name: "ReliefWeb", role: "Humanitarian crisis reports", logo: "📡" },
 ];
 
 const WHY = [
-  { icon: "⚡", title: "Faster than any advisory", desc: "Government advisories lag by weeks. Our AI updates every 12 hours." },
+  { icon: "⚡", title: "Faster than any advisory", desc: "Government advisories lag by weeks. Our AI updates in real-time." },
   { icon: "🌍", title: "Truly global coverage", desc: "150+ cities across every continent including emerging and frontier markets." },
   { icon: "🎯", title: "City-level precision", desc: "Not country-level. We tell you which neighbourhood, which metro line, which scam." },
   { icon: "🔒", title: "No account required", desc: "No sign-up. No tracking. No paywall. Open the app and check your city." },
   { icon: "📱", title: "Works on any device", desc: "Mobile-first PWA. Works offline. Installable on iOS and Android." },
-  { icon: "🤝", title: "Backed by real data", desc: "8 authoritative global sources including Interpol, Europol, USGS and WHO." },
+  { icon: "🤝", title: "Backed by real data", desc: "12+ authoritative global sources including INTERPOL, WHO, USGS and GDACS." },
 ];
 
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
@@ -129,7 +133,6 @@ export default function Home() {
   const [activeService, setActiveService] = useState(0);
   const [demoStep, setDemoStep] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const demoRef = useRef(null);
 
   useEffect(() => {
     const t = setInterval(() => setDemoStep(s => (s + 1) % DEMO_STEPS.length), 2800);
@@ -141,33 +144,26 @@ export default function Home() {
     setMenuOpen(false);
   };
 
+  const s = SERVICES[activeService];
+
   return (
     <>
       <Head>
         <title>MyTravelSafety — Real-Time Travel Safety Intelligence</title>
-        <meta name="description" content="Real-time travel safety scores, scam alerts, risk maps, and live advisories for 150+ cities worldwide. Powered by Interpol, Europol, WHO and USGS data. Always free." />
+        <meta name="description" content="Real-time travel safety scores, scam alerts, risk maps, and live advisories for 150+ cities worldwide. Powered by INTERPOL, EUROPOL, WHO and USGS data. Always free." />
         <meta name="keywords" content="travel safety, scam alerts, travel risk, city safety score, is it safe to travel, travel advisory, tourist scams, interpol travel, europol crime" />
         <link rel="canonical" href="https://mytravelsafety.net" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mytravelsafety.net" />
         <meta property="og:title" content="MyTravelSafety — Real-Time Travel Safety Intelligence" />
-        <meta property="og:description" content="Real-time scam alerts, risk maps, and safety scores for 150+ cities. Backed by Interpol, Europol, WHO, USGS data." />
+        <meta property="og:description" content="Real-time scam alerts, risk maps, and safety scores for 150+ cities. Backed by INTERPOL, EUROPOL, WHO, USGS data." />
         <meta property="og:image" content="https://mytravelsafety.net/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MyTravelSafety — Real-Time Travel Safety Intelligence" />
-        <meta name="twitter:description" content="Real-time scam alerts, risk maps, and safety scores for 150+ cities." />
-        <meta name="theme-color" content="#060B18" />
+        <meta name="theme-color" content="#F0F7FF" />
         <link rel="icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org", "@type": "WebApplication",
-          "name": "MyTravelSafety", "url": "https://app.mytravelsafety.net",
-          "description": "Real-time travel safety intelligence for 150+ cities worldwide.",
-          "applicationCategory": "TravelApplication", "operatingSystem": "Any",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        })}} />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
       </Head>
 
       <style>{`
@@ -175,74 +171,80 @@ export default function Home() {
         html { scroll-behavior: smooth; }
         body {
           font-family: 'DM Sans', -apple-system, sans-serif;
-          background: #060B18;
-          color: #C8D6E5;
+          background: #F0F7FF;
+          color: #1A3355;
           line-height: 1.6;
           overflow-x: hidden;
         }
         a { color: inherit; text-decoration: none; }
-        ::selection { background: rgba(34,211,238,0.2); }
+        ::selection { background: rgba(46,134,222,0.15); }
 
-        /* NOISE OVERLAY */
-        body::before {
-          content: '';
-          position: fixed; inset: 0; z-index: 0; pointer-events: none;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-          opacity: 0.4;
+        :root {
+          --bg: #F0F7FF;
+          --surface: #FFFFFF;
+          --surface2: #E3F0FB;
+          --border: rgba(56,120,200,0.13);
+          --accent: #2E86DE;
+          --navy: #1565C0;
+          --danger: #E53935;
+          --text: #1A3355;
+          --muted: #6B8CAE;
+          --shadow: 0 1px 8px rgba(46,134,222,0.08), 0 2px 16px rgba(46,134,222,0.05);
+          --shadow-lg: 0 4px 24px rgba(46,134,222,0.12), 0 8px 40px rgba(46,134,222,0.07);
         }
-
-        /* GRID BACKGROUND */
-        .grid-bg {
-          position: fixed; inset: 0; z-index: 0; pointer-events: none;
-          background-image:
-            linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
-          background-size: 60px 60px;
-        }
-
-        .page { position: relative; z-index: 1; }
 
         /* NAV */
         .nav {
-          position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+          position: sticky; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
-          padding: 0 clamp(20px, 4vw, 60px);
-          height: 64px;
-          background: rgba(6,11,24,0.85);
+          padding: 0 clamp(16px, 4vw, 48px);
+          height: 58px;
+          background: rgba(240,247,255,0.97);
           backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(34,211,238,0.08);
+          border-bottom: 1px solid var(--border);
+          box-shadow: 0 1px 0 rgba(46,134,222,0.10);
         }
         .nav-brand {
-          font-family: 'Syne', sans-serif;
-          font-weight: 800; font-size: 17px;
-          letter-spacing: -0.3px;
           display: flex; align-items: center; gap: 8px;
-          color: #fff;
         }
-        .nav-brand span { color: #22D3EE; }
+        .nav-logo-box {
+          width: 32px; height: 32px;
+          background: linear-gradient(135deg, #2E86DE, #1565C0);
+          border-radius: 10px;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 15px; flex-shrink: 0;
+          box-shadow: 0 2px 10px rgba(46,134,222,0.30);
+        }
+        .nav-logo-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: #2E86DE; color: #FFFFFF;
+          border-radius: 6px; padding: 4px 10px;
+          font-size: 15px; font-weight: 800;
+          letter-spacing: -0.2px;
+          box-shadow: 0 2px 10px rgba(46,134,222,0.30);
+        }
         .nav-links {
-          display: flex; align-items: center; gap: 32px;
-          font-size: 14px; font-weight: 500; color: #64748B;
+          display: flex; align-items: center; gap: 28px;
         }
         .nav-links button {
           background: none; border: none; cursor: pointer;
-          color: #64748B; font-size: 14px; font-weight: 500;
+          color: var(--muted); font-size: 13px; font-weight: 600;
           font-family: 'DM Sans', sans-serif;
-          transition: color .2s;
+          transition: color .2s; letter-spacing: 0.2px;
         }
-        .nav-links button:hover { color: #C8D6E5; }
+        .nav-links button:hover { color: var(--accent); }
         .nav-cta {
-          background: #22D3EE; color: #060B18;
-          padding: 9px 20px; border-radius: 8px;
-          font-size: 14px; font-weight: 700;
-          font-family: 'Syne', sans-serif;
-          letter-spacing: -0.2px;
+          background: var(--accent); color: #fff;
+          padding: 8px 18px; border-radius: 10px;
+          font-size: 13px; font-weight: 700;
+          font-family: 'DM Sans', sans-serif;
+          box-shadow: 0 3px 10px rgba(46,134,222,0.28);
           transition: all .2s; white-space: nowrap;
         }
-        .nav-cta:hover { background: #67E8F9; transform: translateY(-1px); }
+        .nav-cta:hover { background: var(--navy); transform: translateY(-1px); }
         .nav-mobile-btn {
           display: none; background: none; border: none;
-          cursor: pointer; font-size: 22px; color: #94A3B8;
+          cursor: pointer; font-size: 22px; color: var(--muted);
         }
         @media (max-width: 768px) {
           .nav-links { display: none; }
@@ -250,325 +252,414 @@ export default function Home() {
           .nav-cta { display: none; }
         }
         .mobile-menu {
-          position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
-          background: rgba(6,11,24,0.97); backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(34,211,238,0.08);
-          padding: 20px; display: flex; flex-direction: column; gap: 4px;
+          position: fixed; top: 58px; left: 0; right: 0; z-index: 99;
+          background: rgba(240,247,255,0.98); backdrop-filter: blur(20px);
+          border-bottom: 1px solid var(--border);
+          padding: 16px; display: flex; flex-direction: column; gap: 4px;
+          box-shadow: var(--shadow-lg);
         }
         .mobile-menu button {
           background: none; border: none; cursor: pointer;
-          color: #94A3B8; font-size: 16px; font-weight: 500;
+          color: var(--muted); font-size: 15px; font-weight: 600;
           font-family: 'DM Sans', sans-serif;
           padding: 12px 8px; text-align: left;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid var(--border);
         }
         .mobile-menu a {
-          display: block; background: #22D3EE; color: #060B18;
-          padding: 14px; border-radius: 8px; text-align: center;
+          display: block; background: var(--accent); color: #fff;
+          padding: 14px; border-radius: 10px; text-align: center;
           font-weight: 700; font-size: 15px; margin-top: 8px;
+          box-shadow: 0 3px 10px rgba(46,134,222,0.28);
+        }
+
+        /* LIVE badge */
+        .live-badge {
+          display: inline-flex; align-items: center; gap: 5px;
+          background: var(--accent); color: #fff;
+          border-radius: 6px; padding: 4px 10px;
+          font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+          box-shadow: 0 2px 10px rgba(46,134,222,0.35);
+        }
+        .live-dot {
+          width: 5px; height: 5px; border-radius: 50%;
+          background: rgba(255,255,255,0.85); flex-shrink: 0;
+          position: relative;
+        }
+        .live-dot::after {
+          content: ''; position: absolute; inset: -3px; border-radius: 50%;
+          background: rgba(255,255,255,0.35);
+          animation: liveRing 1.6s ease-out infinite;
+        }
+        @keyframes liveRing {
+          0% { opacity:.8; transform: scale(1); }
+          100% { opacity:0; transform: scale(2.8); }
         }
 
         /* SECTIONS */
-        .section { padding: clamp(80px, 10vw, 120px) clamp(20px, 4vw, 60px); max-width: 1200px; margin: 0 auto; }
+        .section { padding: clamp(64px, 8vw, 100px) clamp(16px, 4vw, 48px); max-width: 1160px; margin: 0 auto; }
         .section-label {
-          font-family: 'Syne', sans-serif;
-          font-size: 11px; font-weight: 700; letter-spacing: 3px;
-          text-transform: uppercase; color: #22D3EE;
-          margin-bottom: 16px;
+          font-size: 10px; font-weight: 700; letter-spacing: 2px;
+          text-transform: uppercase; color: var(--accent);
+          margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+        .section-label::before {
+          content: ''; width: 16px; height: 2px;
+          background: var(--accent); border-radius: 1px;
         }
         .section-title {
-          font-family: 'Syne', sans-serif;
-          font-size: clamp(28px, 4vw, 44px);
+          font-size: clamp(26px, 4vw, 40px);
           font-weight: 800; line-height: 1.1;
-          letter-spacing: -1px; color: #fff;
-          margin-bottom: 16px;
+          letter-spacing: -0.8px; color: var(--text);
+          margin-bottom: 12px;
         }
         .section-sub {
-          font-size: clamp(15px, 1.5vw, 18px);
-          color: #64748B; max-width: 560px; line-height: 1.7;
-          margin-bottom: 56px;
+          font-size: clamp(14px, 1.4vw, 16px);
+          color: var(--muted); max-width: 520px; line-height: 1.7;
+          margin-bottom: 48px;
         }
 
         /* HERO */
         .hero {
-          min-height: 100vh; display: flex; flex-direction: column;
-          align-items: center; justify-content: center;
-          text-align: center; padding: 120px clamp(20px, 4vw, 60px) 80px;
+          padding: clamp(48px, 8vw, 90px) clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px);
+          max-width: 1160px; margin: 0 auto;
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 60px; align-items: center;
+        }
+        @media (max-width: 860px) {
+          .hero { grid-template-columns: 1fr; gap: 36px; }
+          .hero-visual { display: none; }
+        }
+        .hero-eyebrow {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+          text-transform: uppercase; color: var(--accent);
+          background: rgba(46,134,222,0.07);
+          border: 1px solid rgba(46,134,222,0.18);
+          border-radius: 20px; padding: 5px 12px;
+          margin-bottom: 20px;
+        }
+        .hero-h1 {
+          font-size: clamp(36px, 5.5vw, 60px);
+          font-weight: 800; line-height: 1.05;
+          letter-spacing: -1.5px; color: var(--text);
+          margin-bottom: 18px;
+        }
+        .hero-h1 .accent { color: var(--accent); }
+        .hero-sub {
+          font-size: clamp(14px, 1.5vw, 17px);
+          color: var(--muted); line-height: 1.75;
+          margin-bottom: 32px; max-width: 460px;
+        }
+        .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-primary {
+          background: var(--accent); color: #fff;
+          padding: 14px 28px; border-radius: 12px;
+          font-size: 14px; font-weight: 700;
+          transition: all .2s; display: inline-block;
+          box-shadow: 0 4px 16px rgba(46,134,222,0.28);
+        }
+        .btn-primary:hover { background: var(--navy); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(46,134,222,0.38); }
+        .btn-ghost {
+          color: var(--muted); font-size: 14px; font-weight: 600;
+          display: inline-flex; align-items: center; gap: 6px;
+          background: var(--surface); border: 1.5px solid var(--border);
+          padding: 13px 20px; border-radius: 12px;
+          transition: all .2s;
+        }
+        .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+        .hero-trust {
+          margin-top: 24px; display: flex; align-items: center; gap: 10px;
+          font-size: 11px; color: var(--muted); font-weight: 600;
+        }
+        .trust-dots { display: flex; gap: 4px; }
+        .trust-dot {
+          width: 20px; height: 20px; border-radius: 50%;
+          border: 2px solid var(--bg);
+          background: linear-gradient(135deg, #2E86DE, #1565C0);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 8px; color: #fff; font-weight: 700;
+          margin-left: -6px;
+        }
+        .trust-dot:first-child { margin-left: 0; }
+
+        /* HERO VISUAL (app mockup) */
+        .hero-visual {
+          background: var(--surface); border: 1.5px solid var(--border);
+          border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);
           position: relative;
         }
-        .hero-glow {
-          position: absolute; width: 600px; height: 600px;
-          background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%);
-          top: 50%; left: 50%; transform: translate(-50%, -50%);
-          pointer-events: none;
+        .mock-hdr {
+          height: 48px; background: rgba(240,247,255,0.97);
+          border-bottom: 1px solid var(--border);
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 0 16px;
         }
-        .hero-badge {
-          display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(34,211,238,0.06);
-          border: 1px solid rgba(34,211,238,0.2);
-          color: #22D3EE; font-size: 12px; font-weight: 600;
-          padding: 7px 16px; border-radius: 999px;
-          margin-bottom: 32px; letter-spacing: 0.5px;
-          animation: fadeUp .6s ease both;
+        .mock-body { padding: 18px; }
+        .mock-input {
+          background: var(--bg); border: 1.5px solid var(--border);
+          border-radius: 12px; padding: 12px 14px;
+          display: flex; align-items: center; gap: 8px;
+          margin-bottom: 12px;
         }
-        .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
-        @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: none; } }
-        .hero-h1 {
-          font-family: 'Syne', sans-serif;
-          font-size: clamp(44px, 8vw, 88px);
-          font-weight: 800; line-height: 1.0; letter-spacing: -3px;
-          color: #fff; margin-bottom: 24px;
-          animation: fadeUp .6s .1s ease both;
+        .mock-city { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+        .mock-btns { display: flex; gap: 10px; margin-bottom: 14px; }
+        .mock-btn-live {
+          flex: 1; display: flex; flex-direction: column; align-items: center;
+          gap: 4px; padding: 12px 8px; border-radius: 12px;
+          border: 2px solid #16A34A; background: rgba(22,163,74,0.07);
         }
-        .hero-h1 em {
-          font-style: normal;
-          background: linear-gradient(135deg, #22D3EE, #818CF8);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        .mock-btn-scan {
+          flex: 1; display: flex; flex-direction: column; align-items: center;
+          gap: 4px; padding: 12px 8px; border-radius: 12px;
+          border: 2px solid #7C3AED; background: rgba(124,58,237,0.07);
         }
-        .hero-sub {
-          font-size: clamp(16px, 2vw, 20px); color: #64748B;
-          max-width: 520px; line-height: 1.7; margin: 0 auto 40px;
-          animation: fadeUp .6s .2s ease both;
+        .mock-btn-label { font-size: 13px; font-weight: 800; }
+        .mock-btn-sub { font-size: 9px; color: var(--muted); text-align: center; }
+        .mock-result {
+          background: var(--bg); border: 1px solid var(--border);
+          border-radius: 12px; padding: 14px; margin-bottom: 10px;
         }
-        .hero-actions {
-          display: flex; gap: 16px; align-items: center; justify-content: center;
-          flex-wrap: wrap;
-          animation: fadeUp .6s .3s ease both;
+        .mock-result-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .mock-city-name { font-size: 16px; font-weight: 800; color: var(--text); }
+        .mock-badge {
+          font-size: 10px; font-weight: 700; padding: 4px 10px;
+          border-radius: 20px; border: 1px solid;
         }
-        .btn-primary {
-          background: #22D3EE; color: #060B18;
-          padding: 16px 36px; border-radius: 10px;
-          font-family: 'Syne', sans-serif;
-          font-size: 16px; font-weight: 700; letter-spacing: -0.3px;
-          transition: all .2s; display: inline-block;
-          box-shadow: 0 0 40px rgba(34,211,238,0.2);
+        .mock-risk-bar { margin-bottom: 8px; }
+        .mock-risk-label { font-size: 10px; color: var(--muted); font-weight:600; margin-bottom: 4px; }
+        .mock-bar-bg { height: 4px; background: var(--surface2); border-radius: 2px; }
+        .mock-bar-fill { height: 4px; border-radius: 2px; }
+        .mock-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .mock-tag {
+          font-size: 10px; padding: 3px 8px; border-radius: 20px;
+          background: rgba(46,134,222,0.08); color: var(--accent);
+          border: 1px solid rgba(46,134,222,0.15); font-weight: 600;
         }
-        .btn-primary:hover { background: #67E8F9; transform: translateY(-2px); box-shadow: 0 0 60px rgba(34,211,238,0.35); }
-        .btn-ghost {
-          color: #64748B; font-size: 15px; font-weight: 500;
-          display: inline-flex; align-items: center; gap: 8px;
-          transition: color .2s;
+        .mock-nav {
+          display: flex; border-top: 1px solid var(--border);
+          background: rgba(255,255,255,0.98);
         }
-        .btn-ghost:hover { color: #94A3B8; }
-        .hero-scroll {
-          position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-          color: #1E293B; font-size: 11px; letter-spacing: 2px;
-          text-transform: uppercase; display: flex; flex-direction: column;
-          align-items: center; gap: 8px;
-          animation: fadeUp .6s .5s ease both;
+        .mock-nav-item {
+          flex: 1; display: flex; flex-direction: column; align-items: center;
+          padding: 8px 4px; gap: 2px;
         }
-        .scroll-line {
-          width: 1px; height: 40px;
-          background: linear-gradient(to bottom, #22D3EE, transparent);
-          animation: scrollPulse 2s infinite;
-        }
-        @keyframes scrollPulse { 0%,100% { opacity:.3; } 50% { opacity:1; } }
+        .mock-nav-icon { font-size: 14px; }
+        .mock-nav-lbl { font-size: 8px; font-weight: 700; color: var(--muted); }
+        .mock-nav-item.active .mock-nav-lbl { color: var(--accent); }
 
         /* STATS BAR */
         .stats-bar {
-          border-top: 1px solid rgba(255,255,255,0.04);
-          border-bottom: 1px solid rgba(255,255,255,0.04);
-          background: rgba(255,255,255,0.015);
-          padding: 0 clamp(20px, 4vw, 60px);
+          border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+          background: var(--surface);
+          box-shadow: var(--shadow);
         }
         .stats-inner {
-          max-width: 1200px; margin: 0 auto;
+          max-width: 1160px; margin: 0 auto;
           display: grid; grid-template-columns: repeat(4, 1fr);
         }
         @media (max-width: 640px) { .stats-inner { grid-template-columns: repeat(2, 1fr); } }
         .stat {
-          padding: 32px 24px; text-align: center;
-          border-right: 1px solid rgba(255,255,255,0.04);
+          padding: 28px 20px; text-align: center;
+          border-right: 1px solid var(--border);
         }
         .stat:last-child { border-right: none; }
         .stat-value {
-          font-family: 'Syne', sans-serif;
-          font-size: 36px; font-weight: 800; color: #22D3EE;
-          line-height: 1; margin-bottom: 6px;
+          font-size: clamp(28px, 3vw, 36px); font-weight: 800;
+          color: var(--accent); line-height: 1; margin-bottom: 4px;
+          letter-spacing: -0.5px;
         }
-        .stat-label { font-size: 13px; color: #334155; font-weight: 500; }
+        .stat-label { font-size: 12px; color: var(--muted); font-weight: 600; }
 
         /* SERVICES */
-        .services-layout {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
-        }
+        .services-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
         @media (max-width: 900px) { .services-layout { grid-template-columns: 1fr; } }
-        .service-list { display: flex; flex-direction: column; gap: 2px; }
+        .service-list { display: flex; flex-direction: column; gap: 6px; }
         .service-item {
-          padding: 24px 28px; cursor: pointer;
-          border: 1px solid transparent;
-          border-radius: 12px; transition: all .2s;
-          position: relative; overflow: hidden;
+          padding: 16px 18px; cursor: pointer;
+          border: 1.5px solid transparent;
+          border-radius: 14px; transition: all .2s;
+          background: var(--surface);
         }
         .service-item.active {
-          background: rgba(34,211,238,0.04);
-          border-color: rgba(34,211,238,0.15);
+          background: var(--surface); border-color: var(--border);
+          box-shadow: var(--shadow);
         }
-        .service-item:hover:not(.active) { background: rgba(255,255,255,0.02); }
-        .service-item-header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
-        .service-icon { font-size: 22px; }
-        .service-name {
-          font-family: 'Syne', sans-serif;
-          font-size: 16px; font-weight: 700; color: #fff; flex: 1;
-        }
+        .service-item:hover:not(.active) { background: var(--surface); border-color: var(--border); }
+        .service-item-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .service-icon { font-size: 20px; }
+        .service-name { font-size: 14px; font-weight: 700; color: var(--text); flex: 1; }
         .service-tag {
-          font-size: 10px; font-weight: 700; letter-spacing: 1px;
-          padding: 3px 8px; border-radius: 4px;
-          border: 1px solid; opacity: 0.7;
+          font-size: 9px; font-weight: 700; letter-spacing: 1px;
+          padding: 3px 8px; border-radius: 20px; border: 1px solid;
         }
-        .service-desc { font-size: 14px; color: #475569; line-height: 1.6; }
+        .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
         .service-panel {
-          padding: 32px; background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 16px; position: sticky; top: 80px;
+          background: var(--surface); border: 1.5px solid var(--border);
+          border-radius: 16px; overflow: hidden;
+          box-shadow: var(--shadow); position: sticky; top: 72px;
         }
+        .panel-hdr {
+          padding: 14px 18px; border-bottom: 1px solid var(--border);
+          display: flex; align-items: center; gap: 10px;
+          background: rgba(46,134,222,0.04);
+        }
+        .panel-hdr-icon {
+          width: 28px; height: 28px;
+          background: linear-gradient(135deg, #2E86DE, #1565C0);
+          border-radius: 8px; display: flex; align-items: center;
+          justify-content: center; font-size: 13px; flex-shrink: 0;
+        }
+        .panel-hdr-title { font-size: 11px; font-weight: 800; letter-spacing: .8px; color: var(--accent); text-transform: uppercase; }
+        .panel-body { padding: 18px; }
         .panel-city {
-          font-size: 11px; font-weight: 700; letter-spacing: 2px;
-          text-transform: uppercase; color: #475569; margin-bottom: 16px;
+          font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+          text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
         }
         .panel-level {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-family: 'Syne', sans-serif;
-          font-size: 13px; font-weight: 700; letter-spacing: 1px;
-          padding: 6px 14px; border-radius: 6px; margin-bottom: 20px;
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 11px; font-weight: 700; letter-spacing: .5px;
+          padding: 5px 12px; border-radius: 20px; margin-bottom: 14px;
           border: 1px solid;
         }
         .panel-detail {
-          font-size: 15px; color: #94A3B8; line-height: 1.7;
-          border-left: 2px solid rgba(34,211,238,0.2);
-          padding-left: 16px; margin-bottom: 24px;
+          font-size: 13px; color: var(--text); line-height: 1.7;
+          border-left: 3px solid rgba(46,134,222,0.20);
+          padding-left: 13px; margin-bottom: 16px;
         }
-        .panel-sources { display: flex; flex-direction: column; gap: 8px; }
+        .panel-sources-lbl { font-size: 9px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .panel-sources { display: flex; flex-direction: column; gap: 6px; }
         .panel-source {
-          display: flex; align-items: center; gap: 10px;
-          font-size: 12px; color: #334155;
+          display: flex; align-items: center; gap: 8px;
+          font-size: 12px; color: var(--muted); font-weight: 600;
         }
-        .panel-source::before { content: '↗'; color: #22D3EE; font-size: 11px; }
+        .panel-source::before { content: '↗'; color: var(--accent); font-size: 10px; font-weight: 800; }
 
         /* DEMO */
-        .demo-layout {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-        }
+        .demo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
         @media (max-width: 900px) { .demo-layout { grid-template-columns: 1fr; } }
-        .demo-steps { display: flex; flex-direction: column; gap: 0; }
+        .demo-steps { display: flex; flex-direction: column; }
         .demo-step {
-          display: flex; gap: 20px; padding: 24px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.04);
+          display: flex; gap: 16px; padding: 20px 0;
+          border-bottom: 1px solid var(--border);
           transition: all .3s; cursor: pointer;
         }
         .demo-step:last-child { border-bottom: none; }
-        .demo-step.active .demo-step-num { color: #22D3EE; border-color: #22D3EE; background: rgba(34,211,238,0.08); }
-        .demo-step.active .demo-step-title { color: #fff; }
-        .demo-step-num {
-          width: 36px; height: 36px; border-radius: 8px;
-          border: 1px solid #1E293B; display: flex; align-items: center; justify-content: center;
-          font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
-          color: #334155; flex-shrink: 0; transition: all .3s;
+        .demo-step.active .demo-step-num {
+          background: var(--accent); color: #fff; border-color: var(--accent);
+          box-shadow: 0 2px 10px rgba(46,134,222,0.28);
         }
-        .demo-step-body { flex: 1; }
-        .demo-step-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: #475569; margin-bottom: 4px; transition: color .3s; }
-        .demo-step-desc { font-size: 14px; color: #334155; line-height: 1.6; }
+        .demo-step.active .demo-step-title { color: var(--text); }
+        .demo-step-num {
+          width: 34px; height: 34px; border-radius: 10px;
+          border: 1.5px solid var(--border); background: var(--surface);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 11px; font-weight: 800; color: var(--muted);
+          flex-shrink: 0; transition: all .3s; letter-spacing: 0;
+        }
+        .demo-step-title { font-size: 15px; font-weight: 700; color: var(--muted); margin-bottom: 3px; transition: color .3s; }
+        .demo-step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
         .demo-screen {
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 20px; overflow: hidden;
-          box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+          background: var(--surface); border: 1.5px solid var(--border);
+          border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);
         }
         .demo-screen-bar {
-          background: rgba(255,255,255,0.03);
-          border-bottom: 1px solid rgba(255,255,255,0.05);
-          padding: 14px 20px;
-          display: flex; align-items: center; gap: 8px;
+          background: rgba(240,247,255,0.97); border-bottom: 1px solid var(--border);
+          padding: 12px 16px; display: flex; align-items: center; gap: 6px;
         }
         .dot { width: 10px; height: 10px; border-radius: 50%; }
         .demo-screen-url {
-          flex: 1; background: rgba(255,255,255,0.04);
-          border-radius: 6px; padding: 5px 12px;
-          font-size: 12px; color: #334155; margin-left: 8px;
+          flex: 1; background: var(--bg); border-radius: 6px;
+          padding: 4px 11px; font-size: 11px; color: var(--muted);
+          margin-left: 6px; font-weight: 600;
         }
-        .demo-screen-body { padding: 32px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .demo-visual-emoji { font-size: 48px; margin-bottom: 16px; }
-        .demo-visual-text {
-          font-family: 'Syne', sans-serif;
-          font-size: 22px; font-weight: 800; color: #fff;
-          letter-spacing: -0.5px;
+        .demo-progress { height: 2px; background: var(--surface2); position: relative; }
+        .demo-progress-bar { height: 2px; background: var(--accent); transition: width 2.8s linear; }
+        .demo-screen-body {
+          padding: 28px; min-height: 240px;
+          display: flex; flex-direction: column;
+          justify-content: center; align-items: center; text-align: center;
         }
-        .demo-progress { height: 2px; background: rgba(34,211,238,0.1); position: relative; }
-        .demo-progress-bar { height: 2px; background: #22D3EE; transition: width 2.8s linear; }
+        .demo-visual-emoji { font-size: 44px; margin-bottom: 14px; }
+        .demo-visual-text { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+        .demo-visual-sub { font-size: 12px; color: var(--muted); margin-top: 8px; font-weight: 600; }
 
         /* WHY */
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr; } }
         .why-card {
-          padding: 28px; border: 1px solid rgba(255,255,255,0.05);
-          border-radius: 14px; transition: all .2s;
-          background: rgba(255,255,255,0.01);
+          padding: 22px; border: 1.5px solid var(--border);
+          border-radius: 14px; background: var(--surface);
+          transition: all .2s; box-shadow: var(--shadow);
         }
-        .why-card:hover { border-color: rgba(34,211,238,0.15); background: rgba(34,211,238,0.02); }
-        .why-icon { font-size: 24px; margin-bottom: 14px; }
-        .why-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-        .why-desc { font-size: 14px; color: #475569; line-height: 1.6; }
+        .why-card:hover { border-color: rgba(46,134,222,0.30); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .why-icon { font-size: 22px; margin-bottom: 12px; }
+        .why-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+        .why-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
         /* SOURCES */
-        .sources-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        @media (max-width: 900px) { .sources-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .sources-grid { grid-template-columns: repeat(2, 1fr); } }
+        .sources-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        @media (max-width: 900px) { .sources-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 560px) { .sources-grid { grid-template-columns: repeat(2, 1fr); } }
         .source-card {
-          padding: 20px 24px;
-          border: 1px solid rgba(255,255,255,0.05);
-          border-radius: 12px; background: rgba(255,255,255,0.015);
-          transition: all .2s;
+          padding: 16px 18px; border: 1.5px solid var(--border);
+          border-radius: 12px; background: var(--surface);
+          transition: all .2s; box-shadow: var(--shadow);
         }
-        .source-card:hover { border-color: rgba(34,211,238,0.2); transform: translateY(-2px); }
-        .source-logo { font-size: 24px; margin-bottom: 10px; }
-        .source-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-        .source-role { font-size: 12px; color: #334155; line-height: 1.4; }
+        .source-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .source-logo { font-size: 22px; margin-bottom: 8px; }
+        .source-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+        .source-role { font-size: 11px; color: var(--muted); line-height: 1.4; }
 
         /* CTA */
+        .cta-wrap { padding: 0 clamp(16px, 4vw, 48px) 80px; max-width: 1160px; margin: 0 auto; }
         .cta-section {
-          margin: 0 clamp(20px, 4vw, 60px) 80px;
-          background: linear-gradient(135deg, rgba(34,211,238,0.08) 0%, rgba(129,140,248,0.06) 100%);
-          border: 1px solid rgba(34,211,238,0.15);
-          border-radius: 24px; padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 60px);
-          text-align: center; position: relative; overflow: hidden;
+          background: var(--surface);
+          border: 1.5px solid var(--border);
+          border-radius: 24px; padding: clamp(40px, 5vw, 72px) clamp(20px, 4vw, 60px);
+          text-align: center;
+          box-shadow: var(--shadow-lg);
+          position: relative; overflow: hidden;
         }
-        .cta-glow {
-          position: absolute; width: 400px; height: 400px;
-          background: radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%);
-          top: 50%; left: 50%; transform: translate(-50%, -50%);
-          pointer-events: none;
+        .cta-section::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 3px;
+          background: linear-gradient(90deg, #2E86DE, #1565C0);
         }
         .cta-h2 {
-          font-family: 'Syne', sans-serif;
-          font-size: clamp(28px, 4vw, 48px);
-          font-weight: 800; letter-spacing: -1px; color: #fff;
-          margin-bottom: 12px; position: relative;
+          font-size: clamp(24px, 4vw, 38px);
+          font-weight: 800; letter-spacing: -0.8px; color: var(--text);
+          margin-bottom: 10px;
         }
-        .cta-sub { color: #475569; margin-bottom: 36px; font-size: 16px; position: relative; }
-        .cta-note { font-size: 13px; color: #334155; margin-top: 16px; }
+        .cta-sub { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+        .cta-note { font-size: 12px; color: var(--muted); margin-top: 14px; font-weight: 600; }
 
         /* FOOTER */
+        .footer-wrap { border-top: 1px solid var(--border); background: var(--surface); }
         .footer {
-          border-top: 1px solid rgba(255,255,255,0.04);
-          padding: 32px clamp(20px, 4vw, 60px);
+          max-width: 1160px; margin: 0 auto;
+          padding: 28px clamp(16px, 4vw, 48px);
           display: flex; justify-content: space-between; align-items: center;
           flex-wrap: wrap; gap: 16px;
-          max-width: 1200px; margin: 0 auto;
         }
-        .footer-brand { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #1E293B; }
-        .footer-links { display: flex; gap: 24px; font-size: 13px; color: #1E293B; flex-wrap: wrap; }
-        .footer-links a:hover { color: #475569; }
+        .footer-brand { font-size: 13px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 8px; }
+        .footer-links { display: flex; gap: 20px; font-size: 12px; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: none; } }
+        .fadeup { animation: fadeUp .5s ease both; }
       `}</style>
 
-      <div className="grid-bg" />
-
-      <div className="page">
+      <div style={{ position:"relative", zIndex:1 }}>
 
         {/* NAV */}
         <nav className="nav">
-          <div className="nav-brand">🛡️ My<span>Travel</span>Safety</div>
+          <div className="nav-brand">
+            <div className="nav-logo-pill">
+              <span>🛡️</span>
+              MyTravelSafety
+            </div>
+          </div>
           <div className="nav-links">
             <button onClick={() => scrollTo("services")}>Services</button>
             <button onClick={() => scrollTo("demo")}>How it works</button>
@@ -592,34 +683,101 @@ export default function Home() {
         )}
 
         {/* HERO */}
-        <section className="hero">
-          <div className="hero-glow" />
-          <div className="hero-badge">Live intelligence · 150+ cities</div>
-          <h1 className="hero-h1">
-            Travel Smart.<br /><em>Stay Safe.</em>
-          </h1>
-          <p className="hero-sub">
-            Real-time safety scores, scam alerts, risk maps and live advisories for destinations worldwide.
-            Backed by Interpol, Europol, WHO and USGS data.
-          </p>
-          <div className="hero-actions">
-            <a href="https://app.mytravelsafety.net" className="btn-primary">Check Any City Free →</a>
-            <button className="btn-ghost" onClick={() => scrollTo("demo")}>
-              See how it works ↓
-            </button>
+        <div className="hero">
+          <div>
+            <div className="hero-eyebrow fadeup">
+              <div className="live-dot" />
+              LIVE INTELLIGENCE · 150+ CITIES
+            </div>
+            <h1 className="hero-h1 fadeup" style={{ animationDelay:".05s" }}>
+              Travel Smart.<br />
+              <span className="accent">Stay Safe.</span>
+            </h1>
+            <p className="hero-sub fadeup" style={{ animationDelay:".1s" }}>
+              Real-time safety scores, scam alerts, risk maps and live advisories
+              for destinations worldwide. Backed by INTERPOL, EUROPOL, WHO, USGS and 8 more global agencies.
+            </p>
+            <div className="hero-actions fadeup" style={{ animationDelay:".15s" }}>
+              <a href="https://app.mytravelsafety.net" className="btn-primary">Check Any City Free →</a>
+              <button className="btn-ghost" onClick={() => scrollTo("demo")}>How it works ↓</button>
+            </div>
+            <div className="hero-trust fadeup" style={{ animationDelay:".2s" }}>
+              <div className="trust-dots">
+                {["I","E","U","W","G"].map((l,i) => (
+                  <div className="trust-dot" key={i} style={{ zIndex:5-i }}>{l}</div>
+                ))}
+              </div>
+              Trusted data from 12+ official global agencies
+            </div>
           </div>
-          <div className="hero-scroll">
-            <div className="scroll-line" />
+
+          {/* App Mockup */}
+          <div className="hero-visual fadeup" style={{ animationDelay:".2s" }}>
+            <div className="mock-hdr">
+              <div className="nav-logo-pill" style={{ fontSize:12, padding:"3px 8px" }}>
+                <span style={{ fontSize:11 }}>🛡️</span> MyTravelSafety
+              </div>
+              <div className="live-badge">
+                <div className="live-dot" />LIVE
+              </div>
+            </div>
+            <div className="mock-body">
+              <div style={{ fontSize:11, fontWeight:800, letterSpacing:.8, color:"var(--accent)", textTransform:"uppercase", marginBottom:10 }}>Real-Time Safety Check</div>
+              <div className="mock-input">
+                <span style={{ fontSize:16 }}>🔍</span>
+                <span className="mock-city">Paris, France</span>
+              </div>
+              <div className="mock-btns">
+                <div className="mock-btn-live">
+                  <span style={{ fontSize:18 }}>🔴</span>
+                  <span className="mock-btn-label" style={{ color:"#16A34A" }}>Live</span>
+                  <span className="mock-btn-sub">Real-time data<br />fetched now</span>
+                </div>
+                <div className="mock-btn-scan">
+                  <span style={{ fontSize:18 }}>📦</span>
+                  <span className="mock-btn-label" style={{ color:"#7C3AED" }}>Scan</span>
+                  <span className="mock-btn-sub">Stored data<br />for this city</span>
+                </div>
+              </div>
+              <div className="mock-result">
+                <div className="mock-result-hdr">
+                  <div>
+                    <div className="mock-city-name">Paris</div>
+                    <div style={{ fontSize:11, color:"var(--muted)", fontWeight:600 }}>France</div>
+                  </div>
+                  <div className="mock-badge" style={{ color:"#CA8A04", borderColor:"rgba(202,138,4,0.3)", background:"rgba(202,138,4,0.08)" }}>MODERATE</div>
+                </div>
+                <div className="mock-risk-bar">
+                  <div className="mock-risk-label">Safety Score — 71/100</div>
+                  <div className="mock-bar-bg">
+                    <div className="mock-bar-fill" style={{ width:"71%", background:"#CA8A04" }} />
+                  </div>
+                </div>
+                <div className="mock-tags">
+                  <span className="mock-tag">⚠ Pickpockets</span>
+                  <span className="mock-tag">🚇 Metro Strike</span>
+                  <span className="mock-tag">🚕 Taxi Scams</span>
+                </div>
+              </div>
+              <div className="mock-nav">
+                {[{e:"🛡️",l:"Safety",a:true},{e:"🗺️",l:"Map"},{e:"🔍",l:"Scams"},{e:"📡",l:"Alerts"},{e:"👥",l:"Reports"}].map((n,i) => (
+                  <div key={i} className={`mock-nav-item ${n.a?"active":""}`}>
+                    <span className="mock-nav-icon">{n.e}</span>
+                    <span className="mock-nav-lbl" style={n.a?{color:"var(--accent)"}:{}}>{n.l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
 
         {/* STATS */}
         <div className="stats-bar">
           <div className="stats-inner">
             {[
               { value: "150+", label: "Cities covered" },
-              { value: "2×",   label: "Daily AI updates" },
-              { value: "8",    label: "Global data sources" },
+              { value: "12+",  label: "Official sources" },
+              { value: "Live", label: "Real-time updates" },
               { value: "$0",   label: "Always free" },
             ].map(s => (
               <div className="stat" key={s.label}>
@@ -638,86 +796,81 @@ export default function Home() {
 
           <div className="services-layout">
             <div className="service-list">
-              {SERVICES.map((s, i) => (
+              {SERVICES.map((svc, i) => (
                 <div
-                  key={s.id}
+                  key={svc.id}
                   className={`service-item ${activeService === i ? "active" : ""}`}
                   onClick={() => setActiveService(i)}
                 >
                   <div className="service-item-header">
-                    <span className="service-icon">{s.icon}</span>
-                    <span className="service-name">{s.title}</span>
-                    <span className="service-tag" style={{ color: s.tagColor, borderColor: s.tagColor + "44" }}>
-                      {s.tag}
+                    <span className="service-icon">{svc.icon}</span>
+                    <span className="service-name">{svc.title}</span>
+                    <span className="service-tag" style={{ color: svc.tagColor, borderColor: svc.tagColor + "44", background: svc.tagColor + "10" }}>
+                      {svc.tag}
                     </span>
                   </div>
-                  {activeService === i && (
-                    <p className="service-desc">{s.desc}</p>
-                  )}
+                  {activeService === i && <p className="service-desc">{svc.desc}</p>}
                 </div>
               ))}
             </div>
 
             <div className="service-panel">
-              {(() => {
-                const s = SERVICES[activeService];
-                return (
-                  <>
-                    <div className="panel-city">📍 {s.example.city}</div>
-                    <div className="panel-level" style={{ color: s.example.levelColor, borderColor: s.example.levelColor + "33", background: s.example.levelColor + "11" }}>
-                      ● {s.example.level}
-                    </div>
-                    <p className="panel-detail">{s.example.detail}</p>
-                    <div style={{ fontSize: 11, color: "#22D3EE", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>Data sources</div>
-                    <div className="panel-sources">
-                      {s.sources.map(src => (
-                        <div className="panel-source" key={src}>{src}</div>
-                      ))}
-                    </div>
-                  </>
-                );
-              })()}
+              <div className="panel-hdr">
+                <div className="panel-hdr-icon">{s.icon}</div>
+                <span className="panel-hdr-title">{s.title}</span>
+              </div>
+              <div className="panel-body">
+                <div className="panel-city">📍 {s.example.city}</div>
+                <div className="panel-level" style={{ color: s.example.levelColor, borderColor: s.example.levelColor + "44", background: s.example.levelColor + "12" }}>
+                  ● {s.example.level}
+                </div>
+                <p className="panel-detail">{s.example.detail}</p>
+                <div className="panel-sources-lbl">Data Sources</div>
+                <div className="panel-sources">
+                  {s.sources.map(src => (
+                    <div className="panel-source" key={src}>{src}</div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* DEMO */}
-        <section className="section" id="demo" ref={demoRef}>
-          <div className="section-label">How it works</div>
-          <h2 className="section-title">From zero to briefed<br />in 30 seconds.</h2>
-          <p className="section-sub">No account. No install. Just type a city and go.</p>
+        <section className="section" id="demo" style={{ background:"var(--surface)", borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)", maxWidth:"100%", padding:`clamp(64px,8vw,100px) 0` }}>
+          <div style={{ maxWidth:1160, margin:"0 auto", padding:`0 clamp(16px,4vw,48px)` }}>
+            <div className="section-label">How it works</div>
+            <h2 className="section-title">From zero to briefed<br />in 30 seconds.</h2>
+            <p className="section-sub">No account. No install. Just type a city and choose Live or Scan.</p>
 
-          <div className="demo-layout">
-            <div className="demo-steps">
-              {DEMO_STEPS.map((d, i) => (
-                <div
-                  key={d.step}
-                  className={`demo-step ${demoStep === i ? "active" : ""}`}
-                  onClick={() => setDemoStep(i)}
-                >
-                  <div className="demo-step-num">{d.step}</div>
-                  <div className="demo-step-body">
-                    <div className="demo-step-title">{d.title}</div>
-                    <div className="demo-step-desc">{d.desc}</div>
+            <div className="demo-layout">
+              <div className="demo-steps">
+                {DEMO_STEPS.map((d, i) => (
+                  <div key={d.step} className={`demo-step ${demoStep === i ? "active" : ""}`} onClick={() => setDemoStep(i)}>
+                    <div className="demo-step-num">{d.step}</div>
+                    <div>
+                      <div className="demo-step-title">{d.title}</div>
+                      <div className="demo-step-desc">{d.desc}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            <div className="demo-screen">
-              <div className="demo-screen-bar">
-                <div className="dot" style={{ background: "#FF5F57" }} />
-                <div className="dot" style={{ background: "#FEBC2E" }} />
-                <div className="dot" style={{ background: "#28C840" }} />
-                <div className="demo-screen-url">app.mytravelsafety.net</div>
-              </div>
-              <div className="demo-progress">
-                <div className="demo-progress-bar" style={{ width: `${((demoStep + 1) / DEMO_STEPS.length) * 100}%` }} />
-              </div>
-              <div className="demo-screen-body">
-                <div className="demo-visual-emoji">{DEMO_STEPS[demoStep].visual.split("  ")[0]}</div>
-                <div className="demo-visual-text">{DEMO_STEPS[demoStep].visual.split("  ")[1]}</div>
-                <div style={{ fontSize: 13, color: "#334155", marginTop: 12 }}>{DEMO_STEPS[demoStep].title}</div>
+              <div className="demo-screen">
+                <div className="demo-screen-bar">
+                  <div className="dot" style={{ background:"#FF5F57" }} />
+                  <div className="dot" style={{ background:"#FEBC2E" }} />
+                  <div className="dot" style={{ background:"#28C840" }} />
+                  <div className="demo-screen-url">app.mytravelsafety.net</div>
+                </div>
+                <div className="demo-progress">
+                  <div className="demo-progress-bar" style={{ width:`${((demoStep+1)/DEMO_STEPS.length)*100}%` }} />
+                </div>
+                <div className="demo-screen-body">
+                  <div className="demo-visual-emoji">{DEMO_STEPS[demoStep].visual.split("  ")[0]}</div>
+                  <div className="demo-visual-text">{DEMO_STEPS[demoStep].visual.split("  ")[1]}</div>
+                  <div className="demo-visual-sub">{DEMO_STEPS[demoStep].title}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -727,7 +880,7 @@ export default function Home() {
         <section className="section" id="why">
           <div className="section-label">Why MyTravelSafety</div>
           <h2 className="section-title">Built different.</h2>
-          <p className="section-sub">What makes us faster, more precise, and more trustworthy than anything else out there.</p>
+          <p className="section-sub">Faster, more precise, and more trustworthy than any other travel advisory.</p>
           <div className="why-grid">
             {WHY.map(w => (
               <div className="why-card" key={w.title}>
@@ -740,41 +893,50 @@ export default function Home() {
         </section>
 
         {/* SOURCES */}
-        <section className="section" id="sources">
-          <div className="section-label">Trusted data</div>
-          <h2 className="section-title">Intelligence backed<br />by real authorities.</h2>
-          <p className="section-sub">We don't make up safety data. Every assessment is cross-referenced against 8 authoritative global agencies.</p>
-          <div className="sources-grid">
-            {SOURCES.map(s => (
-              <a href={s.url} target="_blank" rel="noopener noreferrer" className="source-card" key={s.name}>
-                <div className="source-logo">{s.logo}</div>
-                <div className="source-name">{s.name}</div>
-                <div className="source-role">{s.role}</div>
-              </a>
-            ))}
+        <section className="section" id="sources" style={{ background:"var(--surface)", borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)", maxWidth:"100%", padding:`clamp(64px,8vw,100px) 0` }}>
+          <div style={{ maxWidth:1160, margin:"0 auto", padding:`0 clamp(16px,4vw,48px)` }}>
+            <div className="section-label">Trusted data</div>
+            <h2 className="section-title">Intelligence backed<br />by real authorities.</h2>
+            <p className="section-sub">Every assessment is cross-referenced against 12+ authoritative global agencies. No made-up data, ever.</p>
+            <div className="sources-grid">
+              {SOURCES.map(s => (
+                <div className="source-card" key={s.name}>
+                  <div className="source-logo">{s.logo}</div>
+                  <div className="source-name">{s.name}</div>
+                  <div className="source-role">{s.role}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* CTA */}
-        <div className="cta-section">
-          <div className="cta-glow" />
-          <h2 className="cta-h2">Your next trip deserves<br />a safety briefing first.</h2>
-          <p className="cta-sub">Free. Instant. No account needed.</p>
-          <a href="https://app.mytravelsafety.net" className="btn-primary">Open MyTravelSafety →</a>
-          <div className="cta-note">Works on any device · 150+ cities · Updated twice daily</div>
+        <div className="cta-wrap" style={{ paddingTop:72 }}>
+          <div className="cta-section">
+            <h2 className="cta-h2">Your next trip deserves<br />a safety briefing first.</h2>
+            <p className="cta-sub">Free. Instant. No account needed.</p>
+            <a href="https://app.mytravelsafety.net" className="btn-primary">Open MyTravelSafety →</a>
+            <div className="cta-note">Works on any device · 150+ cities · Real-time intelligence</div>
+          </div>
         </div>
 
         {/* FOOTER */}
-        <footer className="footer" id="contact">
-          <div className="footer-brand">🛡️ MyTravelSafety</div>
-          <div className="footer-links">
-            <a href="https://app.mytravelsafety.net">App</a>
-            <a href="#services" onClick={e => { e.preventDefault(); scrollTo("services"); }}>Services</a>
-            <a href="#sources" onClick={e => { e.preventDefault(); scrollTo("sources"); }}>Sources</a>
-            <a href="mailto:travelsafety.noreply@gmail.com">travelsafety.noreply@gmail.com</a>
-            <span style={{ color: "#1E293B" }}>© {new Date().getFullYear()} MyTravelSafety</span>
+        <div className="footer-wrap" id="contact">
+          <div className="footer">
+            <div className="footer-brand">
+              <div style={{ display:"flex", alignItems:"center", gap:6, background:"#2E86DE", color:"#fff", borderRadius:6, padding:"4px 10px", fontSize:13, fontWeight:800 }}>
+                🛡️ MyTravelSafety
+              </div>
+            </div>
+            <div className="footer-links">
+              <a href="https://app.mytravelsafety.net">App</a>
+              <a href="#services" onClick={e => { e.preventDefault(); scrollTo("services"); }}>Services</a>
+              <a href="#sources" onClick={e => { e.preventDefault(); scrollTo("sources"); }}>Sources</a>
+              <a href="mailto:travelsafety.noreply@gmail.com">travelsafety.noreply@gmail.com</a>
+              <span>© {new Date().getFullYear()} MyTravelSafety</span>
+            </div>
           </div>
-        </footer>
+        </div>
 
       </div>
     </>
