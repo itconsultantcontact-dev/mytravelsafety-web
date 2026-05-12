@@ -127,6 +127,22 @@ const WHY = [
   { icon: "🤝", title: "Backed by real data", desc: "12+ authoritative global sources including INTERPOL, WHO, USGS and GDACS." },
 ];
 
+// ── SHIELD LOGO SVG ───────────────────────────────────────────────────────────
+function ShieldLogo({ size = 20 }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width={size} height={size} style={{ display:"block", flexShrink:0 }}>
+      <defs>
+        <linearGradient id="wsg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2E86DE"/>
+          <stop offset="100%" stopColor="#1565C0"/>
+        </linearGradient>
+      </defs>
+      <path d="M16 2 L28 7 L28 17 C28 23.5 22.5 28.8 16 31 C9.5 28.8 4 23.5 4 17 L4 7 Z" fill="url(#wsg)"/>
+      <polyline points="10,16 14,20 22,12" fill="none" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -655,9 +671,11 @@ export default function Home() {
         {/* NAV */}
         <nav className="nav">
           <div className="nav-brand">
-            <div className="nav-logo-pill">
-              <span>🛡️</span>
-              MyTravelSafety
+            <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+              <div style={{ width:32, height:32, background:"linear-gradient(135deg,#2E86DE,#1565C0)", borderRadius:10, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, boxShadow:"0 2px 10px rgba(46,134,222,0.30)" }}>
+                <ShieldLogo size={18} />
+              </div>
+              <span style={{ fontSize:15, fontWeight:800, color:"#1A3355", letterSpacing:"-.2px", fontFamily:"'DM Sans',sans-serif" }}>MyTravelSafety</span>
             </div>
           </div>
           <div className="nav-links">
@@ -678,7 +696,9 @@ export default function Home() {
             <button onClick={() => scrollTo("demo")}>How it works</button>
             <button onClick={() => scrollTo("sources")}>Sources</button>
             <button onClick={() => scrollTo("contact")}>Contact</button>
-            <a href="https://app.mytravelsafety.net">Open App →</a>
+            <a href="https://app.mytravelsafety.net" style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"var(--accent)", color:"#fff", padding:14, borderRadius:10, textAlign:"center", fontWeight:700, fontSize:15, marginTop:8, boxShadow:"0 3px 10px rgba(46,134,222,0.28)", textDecoration:"none" }}>
+              <ShieldLogo size={16} />Open App →
+            </a>
           </div>
         )}
 
@@ -714,8 +734,11 @@ export default function Home() {
           {/* App Mockup */}
           <div className="hero-visual fadeup" style={{ animationDelay:".2s" }}>
             <div className="mock-hdr">
-              <div className="nav-logo-pill" style={{ fontSize:12, padding:"3px 8px" }}>
-                <span style={{ fontSize:11 }}>🛡️</span> MyTravelSafety
+              <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+                <div style={{ width:24, height:24, background:"linear-gradient(135deg,#2E86DE,#1565C0)", borderRadius:7, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, boxShadow:"0 1px 6px rgba(46,134,222,0.30)" }}>
+                  <ShieldLogo size={13} />
+                </div>
+                <span style={{ fontSize:12, fontWeight:800, color:"#1A3355", letterSpacing:"-.1px" }}>MyTravelSafety</span>
               </div>
               <div className="live-badge">
                 <div className="live-dot" />LIVE
@@ -924,8 +947,11 @@ export default function Home() {
         <div className="footer-wrap" id="contact">
           <div className="footer">
             <div className="footer-brand">
-              <div style={{ display:"flex", alignItems:"center", gap:6, background:"#2E86DE", color:"#fff", borderRadius:6, padding:"4px 10px", fontSize:13, fontWeight:800 }}>
-                🛡️ MyTravelSafety
+              <div style={{ display:"flex", alignItems:"center", gap:7 }}>
+                <div style={{ width:28, height:28, background:"linear-gradient(135deg,#2E86DE,#1565C0)", borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, boxShadow:"0 1px 6px rgba(46,134,222,0.25)" }}>
+                  <ShieldLogo size={15} />
+                </div>
+                <span style={{ fontSize:14, fontWeight:800, color:"#1A3355" }}>MyTravelSafety</span>
               </div>
             </div>
             <div className="footer-links">
