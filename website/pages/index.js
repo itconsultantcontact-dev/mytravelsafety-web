@@ -98,7 +98,7 @@ const SERVICES = [
 
 const DEMO_STEPS = [
   { step: "01", title: "Enter your destination", desc: "Type any city name. Our AI recognises 150+ cities across all continents.", visual: "🔍  Bangkok" },
-  { step: "02", title: "Choose Live or Scan", desc: "Live fetches real-time data right now. Scan shows stored intelligence for that city.", visual: "🔴  Live" },
+  { step: "02", title: "Choose Live or Brief", desc: "Live generates a full 24h daily report. Brief shows stored intelligence for that city.", visual: "🔴  Live" },
   { step: "03", title: "Get your safety briefing", desc: "In seconds: risk level, top threats, dangerous areas, precautions, and live alerts.", visual: "🟡  MODERATE RISK" },
   { step: "04", title: "Share with your group", desc: "One tap shares the full briefing via WhatsApp, email, or link. No account needed.", visual: "🔗  Share Report" },
 ];
@@ -424,7 +424,7 @@ export default function Home() {
           gap: 4px; padding: 12px 8px; border-radius: 12px;
           border: 2px solid #16A34A; background: rgba(22,163,74,0.07);
         }
-        .mock-btn-scan {
+        .mock-btn-brief {
           flex: 1; display: flex; flex-direction: column; align-items: center;
           gap: 4px; padding: 12px 8px; border-radius: 12px;
           border: 2px solid #7C3AED; background: rgba(124,58,237,0.07);
@@ -756,9 +756,9 @@ export default function Home() {
                   <span className="mock-btn-label" style={{ color:"#16A34A" }}>Live</span>
                   <span className="mock-btn-sub">Real-time data<br />fetched now</span>
                 </div>
-                <div className="mock-btn-scan">
+                <div className="mock-btn-brief">
                   <span style={{ fontSize:18 }}>📦</span>
-                  <span className="mock-btn-label" style={{ color:"#7C3AED" }}>Scan</span>
+                  <span className="mock-btn-label" style={{ color:"#7C3AED" }}>Brief</span>
                   <span className="mock-btn-sub">Stored data<br />for this city</span>
                 </div>
               </div>
@@ -800,7 +800,7 @@ export default function Home() {
             {[
               { value: "150+", label: "Cities covered" },
               { value: "12+",  label: "Official sources" },
-              { value: "Live", label: "Real-time updates" },
+              { value: "Live", label: "Real-time daily report" },
               { value: "$0",   label: "Always free" },
             ].map(s => (
               <div className="stat" key={s.label}>
@@ -864,7 +864,7 @@ export default function Home() {
           <div style={{ maxWidth:1160, margin:"0 auto", padding:`0 clamp(16px,4vw,48px)` }}>
             <div className="section-label">How it works</div>
             <h2 className="section-title">From zero to briefed<br />in 30 seconds.</h2>
-            <p className="section-sub">No account. No install. Just type a city and choose Live or Scan.</p>
+            <p className="section-sub">No account. No install. Just type a city and choose Live or Brief.</p>
 
             <div className="demo-layout">
               <div className="demo-steps">
